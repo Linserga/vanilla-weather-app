@@ -16,36 +16,37 @@
 </head>
 <body>
 <div class="container">
-    <div class="app-wrapper">
-        <form id="search">
-            <div class="row">
-                <div class="col-md-6">
-                    <input type="search" class="form-control" id="city-input" placeholder="Enter a city">
+    <div class="weather-app-wrapper">
+        <div class="app-wrapper">
+            <form id="search">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="search" class="form-control" id="city-input" placeholder="Enter a city">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="submit" class="form-control btn btn-primary" value="Search">
+                    </div>
+                    <div class="col-md-3">
+                        <button class="form-control btn btn-success" id="location">Current</button>
+                    </div>
                 </div>
-                <div class="col-md-3">
-                    <input type="submit" class="form-control btn btn-primary" value="Search">
-                </div>
-                <div class="col-md-3">
-                    <button class="form-control btn btn-success" id="location">Current</button>
-                </div>
-            </div>
-        </form>
-        <div>
+            </form>
             <h1 id="city">Paris</h1>
-            <ul>
-                <li id="time">Tuesday 15:00</li>
-                <li id="atmosphere">Cloudly</li>
-            </ul>
             <div class="row">
-                <div class="col-md-6">
-                    <span class="temperature">13</span>
-                    <span class="units"><a href="#">C</a>|<a href="#">F</a></span>
-                </div>
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <ul>
+                        <li id="time">Tuesday 15:00</li>
+                        <li id="atmosphere">Cloudly</li>
                         <li id="humidity">Humidity: 80%</li>
                         <li id="windSpeed">Wind: 8km/h</li>
                     </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="clearfix">
+                        <img src="images/partly-cloudy.svg" alt="partly cloudly" class="float-start">
+                        <span class="temperature float-start">13</span>
+                        <span class="units float-start"><a href="#">°C</a>|<a href="#">F</a></span>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -55,6 +56,8 @@
                 <div class="col-md-3">Thursday</div>
             </div>
         </div>
+        <small><a href="https://github.com/Linserga/vanilla-weather-app" target="_blank">Open-Source code</a> by
+            Linkov</small>
     </div>
 </div>
 <script src="src/app.js"></script>

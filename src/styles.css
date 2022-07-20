@@ -41,13 +41,17 @@ img {
     padding: 20px ;
 }
 
-.temperature {
-    font-size: 52px;
-}
-
 .units {
     position: relative;
     top: 14px;
     font-size: 24px;
+}
+
+#temperature {
+    font-size: 52px;
+}
+
+#atmosphere{
+    text-transform: capitalize;
 }
 

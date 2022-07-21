@@ -1,10 +1,11 @@
+let tempInCelsius;
+let weather;
 let city = document.querySelector("#city");
 let searchedCity = document.querySelector("#searchedCity");
 let humidity = document.querySelector("#humidity");
 let wind = document.querySelector("#wind");
 let temperature = document.querySelector("#temperature");
-let tempInCelsius;
-let weather;
+let icon = document.querySelector("#icon");
 let celsius = document.querySelector("#celsius");
 let fahrenheit = document.querySelector("#fahrenheit");
 let atmosphere = document.querySelector("#atmosphere");
@@ -52,6 +53,11 @@ function searchLocation() {
       tempInCelsius = Math.round(weather.main.temp);
       atmosphere.innerHTML = weather.weather[0].description;
       date.innerHTML = formatDate(weather.dt);
+      icon.setAttribute(
+        "src",
+        `https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`
+      );
+      icon.setAttribute("alt", weather.weather[0].description);
     });
   });
 }
@@ -69,6 +75,11 @@ function search(cityInput) {
       tempInCelsius = Math.round(weather.main.temp);
       atmosphere.innerHTML = weather.weather[0].description;
       date.innerHTML = formatDate(weather.dt);
+      icon.setAttribute(
+        "src",
+        `https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`
+      );
+      icon.setAttribute("alt", weather.weather[0].description);
     })
     .catch((error) => {
       //msg.innerHTML = "We couldn't find this city. Try again";

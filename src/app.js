@@ -39,25 +39,29 @@ function toFahrenheit(degree) {
   return Math.floor((degree * 9) / 5 + 32).toString();
 }
 
+function layout(response) {
+  weather = response.data;
+  city.innerHTML = weather.name;
+  humidity.innerHTML = weather.main.humidity;
+  wind.innerHTML = Math.round(weather.wind.speed);
+  temperature.innerHTML = Math.round(weather.main.temp);
+  tempInCelsius = Math.round(weather.main.temp);
+  atmosphere.innerHTML = weather.weather[0].description;
+  date.innerHTML = formatDate(weather.dt);
+  icon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`
+  );
+  icon.setAttribute("alt", weather.weather[0].description);
+}
+
 function searchLocation() {
   navigator.geolocation.getCurrentPosition((position) => {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
     let urlLocation = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
     axios.get(urlLocation).then((response) => {
-      weather = response.data;
-      city.innerHTML = weather.name;
-      humidity.innerHTML = weather.main.humidity;
-      wind.innerHTML = Math.round(weather.wind.speed);
-      temperature.innerHTML = Math.round(weather.main.temp);
-      tempInCelsius = Math.round(weather.main.temp);
-      atmosphere.innerHTML = weather.weather[0].description;
-      date.innerHTML = formatDate(weather.dt);
-      icon.setAttribute(
-        "src",
-        `https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`
-      );
-      icon.setAttribute("alt", weather.weather[0].description);
+      layout(response);
     });
   });
 }
@@ -67,19 +71,7 @@ function search(cityInput) {
   axios
     .get(url)
     .then((response) => {
-      weather = response.data;
-      city.innerHTML = weather.name;
-      humidity.innerHTML = weather.main.humidity;
-      wind.innerHTML = Math.round(weather.wind.speed);
-      temperature.innerHTML = Math.round(weather.main.temp);
-      tempInCelsius = Math.round(weather.main.temp);
-      atmosphere.innerHTML = weather.weather[0].description;
-      date.innerHTML = formatDate(weather.dt);
-      icon.setAttribute(
-        "src",
-        `https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`
-      );
-      icon.setAttribute("alt", weather.weather[0].description);
+      layout(response);
     })
     .catch((error) => {
       //msg.innerHTML = "We couldn't find this city. Try again";

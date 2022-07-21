@@ -47,6 +47,10 @@ img {
     font-size: 24px;
 }
 
+.units .active {
+    color: #878787FF;
+}
+
 #temperature {
     font-size: 52px;
 }
@@ -54,4 +58,6 @@ img {
 #atmosphere{
     text-transform: capitalize;
 }
+
+
 

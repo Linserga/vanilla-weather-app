@@ -35,6 +35,8 @@ function formatDate(timestamp) {
 }
 
 function toFahrenheit(degree) {
+  fahrenheit.classList.add("active");
+  celsius.classList.remove("active");
   degree = parseInt(degree, 10);
   return Math.floor((degree * 9) / 5 + 32).toString();
 }
@@ -80,6 +82,8 @@ function search(cityInput) {
 
 celsius.addEventListener("click", (event) => {
   event.preventDefault();
+  fahrenheit.classList.remove("active");
+  celsius.classList.add("active");
   temperature.innerHTML = tempInCelsius;
 });
 

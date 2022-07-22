@@ -9,11 +9,33 @@ let icon = document.querySelector("#icon");
 let celsius = document.querySelector("#celsius");
 let fahrenheit = document.querySelector("#fahrenheit");
 let atmosphere = document.querySelector("#atmosphere");
+let weeklyForecast = document.querySelector("#weekly-forecast");
 let msg = document.querySelector("#msg");
 let date = document.querySelector("#date");
 let form = document.querySelector("#search");
 let button = document.querySelector("#location");
 let apiKey = "d37ed2899e060781baede29f71370db4";
+
+function displayWeeklyForecast(day) {
+  let week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHTML = `
+  <div class="col">
+  <div class="weather-forecast-date">${day}</div>
+  <img
+    src="https://openweathermap.org/img/wn/10d.png"
+    alt=""
+    width="42"
+  />
+  <div class="weather-forecast-temperatures">
+    <span class="weather-forecast-temperature-max">32°</span
+    ><span class="weather-forecast-temperature-min">24°</span>
+  </div>
+  `;
+
+  week.forEach((day) => {
+    weeklyForecast.innerHTML += forecastHTML;
+  });
+}
 
 function formatDate(timestamp) {
   let week = [
@@ -105,3 +127,4 @@ button.addEventListener("click", (event) => {
 });
 
 search("Paris");
+displayWeeklyForecast("Thu");

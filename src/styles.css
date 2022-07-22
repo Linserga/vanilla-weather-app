@@ -38,7 +38,7 @@ img {
 .app-wrapper {
     border: 1px solid #dadde1;
     border-radius: 20px;
-    padding: 20px ;
+    padding: 20px;
 }
 
 .units {
@@ -51,11 +51,30 @@ img {
     color: #878787FF;
 }
 
+.weather-forecast {
+    text-align: center;
+    margin-top: 20px;
+    color: #000;
+}
+
+.weather-forecast-date {
+    font-size: 16px;
+    opacity: 0.5;
+}
+
+.weather-forecast-temperatures {
+    font-size: 13px;
+}
+
+.weather-forecast-temperature-min {
+    opacity: 0.5;
+}
+
 #temperature {
     font-size: 52px;
 }
 
-#atmosphere{
+#atmosphere {
     text-transform: capitalize;
 }
 
